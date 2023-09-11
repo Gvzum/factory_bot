@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  web:
+    build: ./
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - CONTAINER_TYPE=web
+      - DATABASE_NAME=factory_bot
+      - DATABASE_USER=factory_bot
+      - DATABASE_PASSWORD=factory_bot
+      - DATABASE_HOST=db
+      - SECRET_KEY=django-insecure-eo4@b$3-4p1y)
+      - TELEGRAM_BOT_API_KEY=6257715844:AAEAbsKJtHLkV-klsdfjlsdk123
+
+  bot:
+    build: ./
+    volumes:
+      - .:/app
+    environment:
+      - DATABASE_NAME=factory_bot
+      - DATABASE_USER=factory_bot
+      - DATABASE_PASSWORD=factory_bot
+      - DATABASE_HOST=db
+      - SECRET_KEY=django-insecure-eo4@b$3-4p1y)
+      - TELEGRAM_BOT_API_KEY=6257715844:AAEAbsKJtHLkV-klsdfjlsdk123
+
+  db:
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_DB: factory_bot
+      POSTGRES_USER: factory_bot
+      POSTGRES_PASSWORD: factory_bot
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+
+volumes:
+  postgres_data:

@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "521d83d0-e7a5-4eb9-98c3-1dbd0c27a774",
+		"name": "BotFactory",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18658711"
+	},
+	"item": [
+		{
+			"name": "GenerateToken",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/bot/token/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"bot",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"*****\", \"password\": \"*****\"}"
+				},
+				"url": {
+					"raw": "{{host}}/auth/token/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"auth",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SendMessage",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"message_text\": \"from here docker\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/bot/send-message/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"bot",
+						"send-message",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\": \"*****\", \"password\": \"*****\", \"password2\": \"*****\", \"email\": \"*****\"}"
+				},
+				"url": {
+					"raw": "{{host}}/auth/register/",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"auth",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://0.0.0.0:8000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjk0Mzg2NTIzLCJpYXQiOjE2OTQzODYyMjMsImp0aSI6IjlhNzZiZTVhOTEwZTQxZTU4ODg5M2E2ODQ3OWE5YTM1IiwidXNlcl9pZCI6MX0.srPFgSrtfWmKnai4GEDzvNwK5wOtgL7LMQ1ZsxkK1l8",
+			"type": "string"
+		}
+	]
+}

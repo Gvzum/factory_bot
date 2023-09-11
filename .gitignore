@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+*.swp
+*.swo
+*.vscode/
+*.env
+*.idea/
+*.DS_Store
+.env
+.handler-saves
+venv
